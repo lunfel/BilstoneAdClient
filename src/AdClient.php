@@ -9,7 +9,7 @@ namespace Bilstone\AdClient;
  *
  * @author Mathieu Tanguay <mathieu.tanguay871@gmail.com>
  */
-class Client
+class AdClient
 {
     /**
      * The host to connect to fetch the ads
