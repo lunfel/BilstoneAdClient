@@ -45,7 +45,7 @@ class AdClient
      */
     public function fetch($view)
     {
-        $strAd = file_get_contents(sprintf("%s/ad/serve/%s/%s", $this->host, $this->clientKey, $view));
+        $strAd = file_get_contents(sprintf("%s/ads/serve/%s/%s", $this->host, $this->clientKey, $view));
 
         $ad = new Ad($strAd, "");
 
