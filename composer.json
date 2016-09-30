@@ -1,0 +1,14 @@
+{
+    "name": "bilstone/ad-client",
+    "description": "Bilstone ad client to show ads from ad network",
+    "authors": [
+        {
+            "name": "lunfel",
+            "email": "mathieu.tanguay871@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": { "Bilstone\\AdClient": "src/" }
+    }
+}
