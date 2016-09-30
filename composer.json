@@ -9,6 +9,6 @@
     ],
     "require": {},
     "autoload": {
-        "psr-4": { "Bilstone\\AdClient": "src/" }
+        "psr-4": { "Bilstone\\AdClient\\": "src/" }
     }
 }
