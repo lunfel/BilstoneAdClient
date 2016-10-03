@@ -7,7 +7,9 @@
             "email": "mathieu.tanguay871@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ezyang/htmlpurifier": "^4.8"
+    },
     "autoload": {
         "psr-4": { "Bilstone\\AdClient\\": "src/" }
     }
