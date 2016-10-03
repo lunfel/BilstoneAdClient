@@ -45,7 +45,7 @@ class AdClient
      */
     public function fetch($view)
     {
-        $jsonAd = file_get_contents(sprintf("%s/ads/serve/%s/%s", $this->host, $this->clientKey, $view));
+        $jsonAd = json_decode(file_get_contents(sprintf("%s/ads/serve/%s/%s", $this->host, $this->clientKey, $view)), true);
 
         $purifier = new \HTMLPurifier();
 
