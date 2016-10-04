@@ -27,7 +27,7 @@ class Ad
      * @param $content
      * @param $css
      */
-    public function __construct($content, $css)
+    public function __construct($content = "", $css = "")
     {
         $this->content = $content;
         $this->css = $css;

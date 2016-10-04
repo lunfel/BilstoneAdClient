@@ -47,6 +47,10 @@ class AdClient
     {
         $jsonAd = json_decode(file_get_contents(sprintf("%s/ads/serve/%s/%s", $this->host, $this->clientKey, $view)), true);
 
+        if (empty($jsonAd)) {
+            return new Ad();
+        }
+
         $purifier = new \HTMLPurifier();
 
         $jsonAd = $purifier->purifyArray($jsonAd);
