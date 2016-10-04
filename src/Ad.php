@@ -2,6 +2,13 @@
 
 namespace Bilstone\AdClient;
 
+/**
+ * Class Ad
+ *
+ * @package Bilstone\AdClient
+ *
+ * @author Mathieu Tanguay <mathieu.tanguay871@gmail.com>
+ */
 class Ad
 {
     /**
