@@ -45,7 +45,17 @@ class AdClient
      */
     public function fetch($view)
     {
-        $jsonAd = json_decode(file_get_contents(sprintf("%s/ads/serve/%s/%s", $this->host, $this->clientKey, $view)), true);
+        $data = [
+            'client_ip' => $this->getClientIp()
+        ];
+
+        $jsonAd = json_decode(file_get_contents(sprintf(
+            "%s/ads/serve/%s/%s?%s",
+            $this->host,
+            $this->clientKey,
+            $view,
+            http_build_query($data)
+        )), true);
 
         if (empty($jsonAd)) {
             return new Ad();
@@ -58,5 +68,19 @@ class AdClient
         $ad = new Ad($jsonAd["content"], $jsonAd["css"]);
 
         return $ad;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getClientIp()
+    {
+        $ip = 'unknown';
+
+        if (isset($_SERVER['REMOTE_ADDR'])) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        return $ip;
     }
 }
