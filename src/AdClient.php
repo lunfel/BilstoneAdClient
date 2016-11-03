@@ -65,7 +65,7 @@ class AdClient
 
         $jsonAd = $purifier->purifyArray($jsonAd);
 
-        $ad = new Ad($jsonAd["content"], $jsonAd["css"]);
+        $ad = new Ad($jsonAd["content_with_wrapping"], $jsonAd["css"]);
 
         return $ad;
     }
