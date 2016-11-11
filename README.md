@@ -43,4 +43,4 @@ And where you want to place the slot
 
 Warning
 ===
-Please only use the client application with a content source that you trust. Using untrusted source could compromise your whole userbase and result in serious damage to your systems. Use at your own risks
+Please only use BilstoneAdClient with a content source that you trust. Using untrusted source could compromise your whole userbase and result in serious damage to your systems. Use at your own risks
