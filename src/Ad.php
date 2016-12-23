@@ -38,7 +38,7 @@ class Ad
      */
     public function getContent()
     {
-        return '<div id="1aframe">' . $this->content . '</div>';
+        return '<div id="a1frame">' . $this->content . '</div>';
     }
 
     /**
