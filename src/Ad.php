@@ -22,15 +22,23 @@ class Ad
     private $css;
 
     /**
+     * @var string
+     */
+    private $containerId;
+
+    /**
      * Represents an ad
      *
      * @param $content
      * @param $css
      */
-    public function __construct($content = "", $css = "")
+    public function __construct($jsonAd = null)
     {
-        $this->content = $content;
-        $this->css = $css;
+        if (empty($jsonAd)) return;
+
+        $this->content = $jsonAd['content_with_wrapping'];
+        $this->css = $jsonAd['css'];
+        $this->containerId = $jsonAd['container_id'];
     }
 
     /**
@@ -38,7 +46,7 @@ class Ad
      */
     public function getContent()
     {
-        return '<div id="a1frame">' . $this->content . '</div>';
+        return sprintf('<div id="%s">%s</div>', $this->getContainerId(), $this->content);
     }
 
     /**
@@ -63,5 +71,13 @@ class Ad
     public function setCss($css)
     {
         $this->css = $css;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContainerId()
+    {
+        return $this->containerId;
     }
 }

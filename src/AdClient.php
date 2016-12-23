@@ -61,7 +61,7 @@ class AdClient
             return new Ad();
         }
 
-        $ad = new Ad($jsonAd["content_with_wrapping"], $jsonAd["css"]);
+        $ad = new Ad($jsonAd);
 
         return $ad;
     }
