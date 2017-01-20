@@ -1,6 +1,7 @@
 <?php
 
 namespace Bilstone\AdClient;
+use Curl\Curl;
 
 /**
  * Class Client
@@ -41,21 +42,28 @@ class AdClient
      * Fetchs an ad to display
      *
      * @param $view string Chose which view to fetch
-     * @return Ad
+     * @return Ad|array
      */
     public function fetch($view)
     {
+        $curl = new Curl();
+
         $data = [
+            'clientKey' => $this->clientKey,
             'client_ip' => $this->getClientIp()
         ];
 
-        $jsonAd = json_decode(file_get_contents(sprintf(
-            "%s/ads/serve/%s/%s?%s",
+        $curl->get(sprintf(
+            "%s/api/serve/backend/%s?%s",
             $this->host,
-            $this->clientKey,
-            $view,
-            http_build_query($data)
-        )), true);
+            $view
+        ), $data);
+
+        if ($curl->error) {
+            return new Ad();
+        }
+
+        $jsonAd = json_decode($curl->response, true);
 
         if (empty($jsonAd)) {
             return new Ad();
