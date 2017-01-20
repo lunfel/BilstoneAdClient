@@ -54,7 +54,7 @@ class AdClient
         ];
 
         $curl->get(sprintf(
-            "%s/api/serve/backend/%s?%s",
+            "%s/api/serve/backend/%s",
             $this->host,
             $view
         ), $data);
