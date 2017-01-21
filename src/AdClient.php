@@ -49,7 +49,7 @@ class AdClient
         $curl = new Curl();
 
         $data = [
-            'clientKey' => $this->clientKey,
+            'client_key' => $this->clientKey,
             'client_ip' => $this->getClientIp()
         ];
 
