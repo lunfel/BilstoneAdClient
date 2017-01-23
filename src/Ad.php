@@ -65,6 +65,7 @@ class Ad
     public function getContent()
     {
         $style = ['position: relative'];
+        $cross = '';
 
         if ($this->floating) {
             $style = [
@@ -72,14 +73,17 @@ class Ad
                 'right: 5px',
                 'bottom: 5px',
             ];
+
+            $cross = '<div style="display: block;position: absolute;left: -20px;top: -20px;height: 20px;width: 20px;">X</div>';
         }
 
         return sprintf(
-            '<div id="%s" style="width: %spx; height: %spx; %s">%s</div>',
+            '<div id="%s" style="width: %spx; height: %spx; %s">%s%s</div>',
             $this->getContainerId(),
             $this->width,
             $this->height,
             implode(';', $style),
+            $cross,
             $this->content
         );
     }
