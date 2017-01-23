@@ -59,7 +59,7 @@ class Ad
     public function getContent()
     {
         return sprintf(
-            '<div id="%s" style="width: %px; height: %spx">%s</div>',
+            '<div id="%s" style="width: %spx; height: %spx">%s</div>',
             $this->getContainerId(),
             $this->width,
             $this->height,
