@@ -27,6 +27,16 @@ class Ad
     private $containerId;
 
     /**
+     * @var integer
+     */
+    private $width;
+
+    /**
+     * @var integer
+     */
+    private $height;
+
+    /**
      * Represents an ad
      *
      * @param $content
@@ -39,6 +49,8 @@ class Ad
         $this->content = $jsonAd['content_with_wrapping'];
         $this->css = $jsonAd['css'];
         $this->containerId = $jsonAd['container_id'];
+        $this->width = $jsonAd['width'];
+        $this->height = $jsonAd['height'];
     }
 
     /**
@@ -46,7 +58,13 @@ class Ad
      */
     public function getContent()
     {
-        return sprintf('<div id="%s">%s</div>', $this->getContainerId(), $this->content);
+        return sprintf(
+            '<div id="%s" style="width: %px; height: %spx">%s</div>',
+            $this->getContainerId(),
+            $this->width,
+            $this->height,
+            $this->content
+        );
     }
 
     /**
@@ -79,5 +97,37 @@ class Ad
     public function getContainerId()
     {
         return $this->containerId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param int $width
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param int $height
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
     }
 }
