@@ -37,6 +37,11 @@ class Ad
     private $height;
 
     /**
+     * @var boolean
+     */
+    private $floating;
+
+    /**
      * Represents an ad
      *
      * @param $content
@@ -51,6 +56,7 @@ class Ad
         $this->containerId = $jsonAd['container_id'];
         $this->width = $jsonAd['width'];
         $this->height = $jsonAd['height'];
+        $this->floating = $jsonAd['floating'];
     }
 
     /**
@@ -58,11 +64,22 @@ class Ad
      */
     public function getContent()
     {
+        $style = ['position: relative'];
+
+        if ($this->floating) {
+            $style = [
+                'position: absolute',
+                'right: 5px',
+                'bottom: 5px',
+            ];
+        }
+
         return sprintf(
-            '<div id="%s" style="width: %spx; height: %spx; position: relative">%s</div>',
+            '<div id="%s" style="width: %spx; height: %spx; %s">%s</div>',
             $this->getContainerId(),
             $this->width,
             $this->height,
+            implode(';', $style),
             $this->content
         );
     }
