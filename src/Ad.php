@@ -68,7 +68,7 @@ class Ad
 
         if ($this->floating) {
             $style = [
-                'position: absolute',
+                'position: fixed',
                 'right: 5px',
                 'bottom: 5px',
             ];
