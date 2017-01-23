@@ -74,7 +74,7 @@ class Ad
                 'bottom: 5px',
             ];
 
-            $cross = '<div style="display: block;position: absolute;left: -20px;top: -20px;height: 20px;width: 20px;">X</div>';
+            $cross = '<div style="display: block;position: absolute;left: -20px;top: -20px;height: 20px;width: 20px; cursor: pointer" onclick="document.querySelector(\'#'. $this->getContainerId() .'\').remove()">X</div>';
         }
 
         return sprintf(
