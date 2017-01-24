@@ -72,6 +72,7 @@ class Ad
                 'position: fixed',
                 'right: 5px',
                 'bottom: 5px',
+                'z-index: 1000'
             ];
 
             $cross = '<div style="display: block;position: absolute;left: -20px;top: -20px;height: 20px;width: 20px; cursor: pointer" onclick="document.querySelector(\'#'. $this->getContainerId() .'\').remove()">X</div>';
