@@ -101,7 +101,7 @@ class Ad
      */
     public function getCss()
     {
-        return $this->css;
+        return sprintf('<style>%s</style>', $this->css);
     }
 
     /**
