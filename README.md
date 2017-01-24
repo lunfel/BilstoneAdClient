@@ -33,7 +33,9 @@ $ad = $client->fetch("SLOT_NAME_HERE");
 In the `<head >` of your page put
 
 ```
+<style>
 <?php print $ad->getCss(); ?>
+</style>
 ```
 
 And where you want to place the slot
